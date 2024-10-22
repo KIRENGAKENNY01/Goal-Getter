@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom'
 import {useState} from 'react'
 import axios from 'axios'
 import LogPopup from './LogPopup'
+import { FaChevronCircleDown } from 'react-icons/fa'
 
 interface Description{
     Description:string
@@ -22,6 +23,7 @@ const Important = () => {
     const towork:React.MouseEventHandler<HTMLButtonElement> =()=>navigate('/work')
     const toPerson:React.MouseEventHandler<HTMLButtonElement> = ()=>navigate('/person')
     const toCompleted:React.MouseEventHandler<HTMLButtonElement> = ()=>navigate('/completed')
+    const toImportantEdit:React.MouseEventHandler<HTMLButtonElement> = () => navigate('/importantedit')
 
     const[taskData,setTaskData]=useState<Description>({
         Description:""
@@ -50,47 +52,67 @@ const Important = () => {
         
     }
     return ( 
-        <div  style={{backgroundImage:`url(${background})`}} className=" h-[100%] bg-cover bg-center overflow-hidden">
+        <div  style={{backgroundImage:`url(${background})`}} className=" h-[100%] bg-cover bg-center h-screen overflow-hidden overflow-y-auto">
         <div className='flex'>
-        <div className='w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack'>
-        <div className='flex gap-5 mt-5 mb-10 ml-5'>
-            <img src={logo} alt="handle with care" className='w-[20%]' />
-             <p className='text-white font-semibold text-[1.3rem] self-center'>Goal Getter</p>
+        <div className='w-[20%] bg-gradient-to-b from-liblack via-liyellow to-liblack '>
+        <div className='flex sm:gap-1 md:gap-3 lg:gap-5  mt-5 mb-10 '>
+            <img src={logo} 
+            alt="handle with care" 
+            className='sm:w-[20%] md:w-[13%] lg:w-[15%] ml-5' />
+             <p className='text-white font-semibold  sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center'>Goal Getter</p>
         </div>
-        <button className='flex gap-5 mt-5 ml-5' onClick={toProfile}>
-            <img src={user} alt="handle with care" className='w-[20%]' />
-             <p className='text-white font-semibold text-[1.3rem] self-center'>John Kabera</p>
+        <button className='flex sm:gap-1 md:gap-3 lg:gap-5  mt-5 ' onClick={toProfile}>
+            <img src={user}
+             alt="handle with care" 
+             className='sm:w-[20%] sm:h-[20%] md:w-[20%] h-[20%] lg:w-[15%] ml-5' />
+             <p className='text-white font-semibold  sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center'>John Kabera</p>
         </button>
-        <button className='flex gap-5 mt-20 ml-5' onClick={towork}>
-            <img src={office} alt="handle with care" className=' w-[20%]'/>
-             <p className='text-white font-semibold text-[1.3rem] self-center ml-3' >Work</p>
+        <button className='flex sm:gap-1 md:gap-3 lg:gap-5  mt-20' onClick={towork}>
+            <img src={office}
+             alt="handle with care"
+              className=' sm:w-[18%] md:w-[13%] lg:w-[15%] ml-5'/>
+             <p className='text-white font-semibold  sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center lg:ml-3' >Work</p>
         </button>
-        <button className='flex gap-5 mt-5 ml-5' onClick={toPerson}>
-            <img src={person} alt="handle with care" className='w-[15%] '/>
-             <p className='text-white font-semibold text-[1.3rem] self-center ml-4'>Personal</p>
+        <button className='flex sm:gap-1 md:gap-3 lg:gap-5  mt-5 ml-5' onClick={toPerson}>
+            <img src={person}
+             alt="handle with care"
+              className='sm:w-[18%] md:w-[17%] lg:w-[20%]'/>
+             <p className='text-white font-semibold  sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center lg:ml-4'>Personal</p>
         </button>
-        <button className='flex gap-5 mt-5 bg-button py-2 w-full' >
-            <img src={email} alt="handle with care" className='w-[15%] ml-4' />
-             <p className='text-white font-semibold text-[1.3rem] self-center ml-2'>Important</p>
+        <button className='flex sm:gap-1 md:gap-3 lg:gap-5  mt-5 bg-button py-2 w-full' >
+            <img src={email} 
+            alt="handle with care"
+             className='sm:w-[20%] md:w-[13%] lg:w-[15%] ml-5' />
+             <p className='text-white font-semibold  sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center lg:ml-2'>Important</p>
         </button>
-        <button className='flex gap-5 mt-5 ml-5 ' onClick={toCompleted}>
-            <img src={approved} alt="handle with care" className='w-[15%]' />
-             <p className='text-white font-semibold text-[1.3rem] self-center ml-3'>Completed</p>
+        <button className='flex sm:gap-1 md:gap-3 lg:gap-5  mt-5 ' onClick={toCompleted}>
+            <img src={approved} 
+            alt="handle with care" 
+            className='sm:w-[20%] md:w-[13%] lg:w-[15%] ml-5' />
+             <p className='text-white font-semibold  sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center lg:ml-3'>Completed</p>
         </button>
  
         <LogPopup/>
 
         </div>
-        <div className=' w-[80%] flex flex-col items-center mt-10'>
-        <div className='flex flex-col mb-19'>
-            <h1 className='text-white font-bold text-[3rem] self-center'>Important Task</h1>
-             <div className='self-center'>
-                 <p className='text-white text-[2rem] font-semibold ml-15'>Daily Task</p>
-                 <small className='text-white'>List refreshes everyday</small>
-             </div>
-             <img src={star} alt="a person using computer" className='opacity-85'/>  
+        <div className=' w-[80%] flex justify-between flex-col items-center mt-10'>
+        <div className='flex flex-col w-[100%]'>
+        <button className='text-white bg-hover self-start ml-5  p-2 flex items-center gap-2 ' onClick={toImportantEdit}>
+                <FaChevronCircleDown className='text-white sm:text-[60%] md:text-[80%] lg:text-[100%] self-start '/>
+                <p className='text-white  sm:text-[60%] md:text-[80%] lg:text-[100%]'>Check Task</p>
+        </button>
+            <div className='flex flex-col items-center'>
+                <div className='self-center'>
+                    <h1 className='text-white font-bold sm:text-[2.4rem] md:text-[2.7rem] lg:text-[3rem] self-center'>Important Task</h1>
+                </div>
+                 <div className='self-center'>
+                     <p className='text-white sm:text-[1.4rem] md:text-[1.7rem] lg:text-[2rem] font-semibold ml-15'>Daily Task</p>
+                     <small className='text-white'>List refreshes everyday</small>
+                 </div>
+            </div>
+             <img src={star} alt="a person using computer" className='sm:w-[80%]  md:w-[80%] lg:w-[50%] ml-10 self-center opacity-70'/>  
         </div>
-        <form   onSubmit={handleSubmit}  className='w-[80%] mx-auto flex justify-center  bg-light_button mb-5'> 
+        <form   onSubmit={handleSubmit}  className='w-[80%] mx-auto flex justify-center self-end bg-light_button mb-20'> 
                     <img src={plus} alt="plus sign"/>
                     <input type="text" 
                     placeholder='Wake up 5:00am'

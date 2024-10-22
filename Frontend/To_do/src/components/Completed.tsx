@@ -19,29 +19,41 @@ const Completed = () => {
 <div  style={{backgroundImage:`url(${background})`}} className="bg-cover bg-center">
         <div className='flex'>
         <div className='w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack'>
-        <div className='flex gap-5 mt-5 mb-10 ml-5'>
-            <img src={logo} alt="handle with care" className='w-[20%]' />
-             <p className='text-white font-semibold text-[1.3rem] self-center'>Goal Getter</p>
+        <div className='flex  sm:gap-1 md:gap-3 lg:gap-5 mt-5 mb-10 ml-5'>
+            <img src={logo}
+             alt="handle with care"
+              className='sm:w-[20%] md:w-[13%] lg:w-[15%]' />
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center'>Goal Getter</p>
         </div>
-        <button className='flex gap-5 mt-5 ml-5' onClick={toProfile}>
-            <img src={user} alt="handle with care" className='w-[20%]' />
-             <p className='text-white font-semibold text-[1.3rem] self-center'>John Kabera</p>
+        <button className='flex  sm:gap-1 md:gap-3 lg:gap-5 mt-5 ml-5' onClick={toProfile}>
+            <img src={user}
+             alt="handle with care" 
+             className='sm:w-[20%] sm:h-[20%] md:w-[20%] h-[20%] lg:w-[15%]' />
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center'>John Kabera</p>
         </button>
-        <button className='flex gap-5 mt-20 ml-5' onClick={towork}>
-            <img src={office} alt="handle with care" className=' w-[20%]'/>
-             <p className='text-white font-semibold text-[1.3rem] self-center ml-2' >Work</p>
+        <button className='flex  sm:gap-1 md:gap-3 lg:gap-5 mt-20' onClick={towork}>
+            <img src={office}
+             alt="handle with care"
+              className='sm:w-[18%] md:w-[13%] lg:w-[15%] ml-5'/>
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center ml-2' >Work</p>
         </button>
-        <button className='flex gap-5 mt-5 ml-1' onClick={toPerson} >
-            <img src={person} alt="handle with care" className='w-[15%] ml-4'/>
-             <p className='text-white font-semibold text-[1.3rem] self-center ml-2'>Personal</p>
+        <button className='flex  sm:gap-1 md:gap-3 lg:gap-5 mt-5 ml-1' onClick={toPerson} >
+            <img src={person}
+             alt="handle with care" 
+             className='sm:w-[18%] md:w-[17%] lg:w-[20%]  ml-4'/>
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center ml-2'>Personal</p>
         </button>
-        <button className='flex gap-5 mt-5 ml-5' onClick={toImportant}>
-            <img src={email} alt="handle with care" className='w-[15%]' />
-             <p className='text-white font-semibold text-[1.3rem] self-center ml-2'>Important</p>
+        <button className='flex  sm:gap-1 md:gap-3 lg:gap-5 mt-5 ml-5' onClick={toImportant}>
+            <img src={email} 
+            alt="handle with care" 
+            className='sm:w-[18%] md:w-[17%] lg:w-[20%] ' />
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center ml-2'>Important</p>
         </button>
-        <button className='flex gap-5 mt-5  bg-button w-full py-2' >
-            <img src={approved} alt="handle with care" className='w-[15%] ml-4' />
-             <p className='text-white font-semibold text-[1.3rem] self-center '>Completed</p>
+        <button className='flex  sm:gap-1 md:gap-3 lg:gap-5 mt-5  bg-button w-full py-2' >
+            <img src={approved} 
+            alt="handle with care"
+             className='sm:w-[18%] md:w-[17%] lg:w-[20%]  ml-4' />
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center '>Completed</p>
         </button>
  
         <LogPopup/>

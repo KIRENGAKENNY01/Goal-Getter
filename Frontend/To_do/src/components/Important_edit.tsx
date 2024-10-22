@@ -94,29 +94,41 @@ const ImportantEdit = () => {
         <div  style={{backgroundImage:`url(${background})`}} className="bg-cover bg-center">
         <div className='flex'>
         <div className='w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack'>
-        <div className='flex gap-5 mt-5 mb-10 ml-5'>
-            <img src={logo} alt="handle with care" className='w-[20%]' />
-             <p className='text-white font-semibold text-[1.3rem] self-center'>Goal Getter</p>
+        <div className='flex  sm:gap-1 md:gap-3 lg:gap-5   mt-5 mb-10 ml-5'>
+            <img src={logo}
+             alt="handle with care"
+              className='sm:w-[20%] md:w-[13%] lg:w-[15%]' />
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center'>Goal Getter</p>
         </div>
-        <div className='flex gap-5 mt-5 ml-5'>
-            <img src={user} alt="handle with care" className='w-[20%]' />
-             <p className='text-white font-semibold text-[1.3rem] self-center'>John Kabera</p>
+        <div className='flex sm:gap-1 md:gap-3 lg:gap-5  mt-5 ml-5'>
+            <img src={user} 
+            alt="handle with care"
+             className='sm:w-[20%] sm:h-[20%] md:w-[20%] h-[20%] lg:w-[15%]' />
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center'>John Kabera</p>
         </div>
-        <div className='flex gap-5 mt-20 ml-5 bg-'>
-            <img src={office} alt="handle with care" className='w-[20%]' />
-             <p className='text-white font-semibold text-[1.3rem] self-center'>Work</p>
+        <div className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-20 '>
+            <img src={office}
+             alt="handle with care"
+              className='sm:w-[18%] md:w-[13%] lg:w-[15%] ml-5' />
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center'>Work</p>
         </div>
-        <div className='flex gap-5 mt-5 ml-5'>
-            <img src={person} alt="handle with care" className=' w-[20%]'/>
-             <p className='text-white font-semibold text-[1.3rem] self-center '>Personal</p>
+        <div className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-5 '>
+            <img src={person}
+             alt="handle with care" 
+             className=' sm:w-[18%] md:w-[17%] lg:w-[20%] ml-5'/>
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center '>Personal</p>
         </div>
-        <div className='flex gap-5 mt-5 w-full py-2 bg-button  '>
-            <img src={email} alt="handle with care" className=' ml-5 w-[20%]' />
-             <p className='text-white font-semibold text-[1.3rem] self-center'>Important</p>
+        <div className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-5 w-full py-2 bg-button  '>
+            <img src={email}
+             alt="handle with care"
+              className='sm:w-[20%] md:w-[13%] lg:w-[15%] ml-5' />
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center'>Important</p>
         </div>
-        <div className='flex gap-5 mt-5 ml-5 bg-'>
-            <img src={approved} alt="handle with care" className='w-[20%]'/>
-             <p className='text-white font-semibold text-[1.3rem] self-center'>Completed</p>
+        <div className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-5 ml-5 bg-'>
+            <img src={approved} 
+            alt="handle with care"
+             className='sm:w-[20%] md:w-[13%] lg:w-[15%]'/>
+             <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center'>Completed</p>
         </div>
  
        <LogPopup/>

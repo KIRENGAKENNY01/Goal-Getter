@@ -104,47 +104,53 @@ const WorkEdit: React.FC = () => {
   return (
     <div
       style={{ backgroundImage: `url(${background})` }}
-      className="bg-cover bg-center"
+      className="bg-cover bg-center h-screen overflow-hidden overflow-y-auto"
     >
       <div className="flex ">
         <div className="w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack overflow-y-auto">
-          <div className="flex gap-5 mt-5 mb-10 ml-5">
-            <img src={logo} alt="handle with care" className="w-[20%]" />
-            <p className="text-white font-semibold text-[1.3rem] self-center">
+          <div className="flex sm:gap-1 md:gap-3 lg:gap-5 mt-5 mb-10 ml-5">
+            <img src={logo} alt="handle with care" className="sm:w-[20%] md:w-[13%] lg:w-[15%]" />
+            <p className="text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center">
               Goal Getter
             </p>
           </div>
-          <button className="flex gap-5 mt-5 ml-5" onClick={toProfile}>
-            <img src={user} alt="handle with care" className="w-[15%]" />
-            <p className="text-white font-semibold text-[1.3rem] self-center">
+          <button className="flex sm:gap-1 md:gap-3 lg:gap-5 mt-5 ml-5" onClick={toProfile}>
+            <img src={user} alt="handle with care" className="sm:w-[20%] sm:h-[20%] md:w-[20%] h-[20%] lg:w-[15%]" />
+            <p className="text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center">
               John Kabera
             </p>
           </button>
-          <button className="flex gap-5 mt-20 bg-button w-full py-2">
+          <button className="flex sm:gap-1 md:gap-3 lg:gap-5 mt-20 bg-button w-full py-2">
             <img
               src={office}
               alt="handle with care"
-              className=" w-[15%] ml-5"
+              className="sm:w-[18%] md:w-[13%] lg:w-[15%] ml-5"
             />
-            <p className="text-white font-semibold text-[1.3rem] self-center">
+            <p className="text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center">
               Work
             </p>
           </button>
-          <button className="flex gap-5 mt-5 ml-5 " onClick={toPerson}>
-            <img src={person} alt="handle with care" className="w-[20%]" />
-            <p className="text-white font-semibold text-[1.3rem] self-center ml-2">
+          <button className="flex sm:gap-1 md:gap-3 lg:gap-5  mt-5 ml-5 " onClick={toPerson}>
+            <img src={person} 
+            alt="handle with care"
+             className="sm:w-[18%] md:w-[17%] lg:w-[20%]" />
+            <p className="text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center ml-2">
               Personal
             </p>
           </button>
-          <button className="flex gap-5 mt-5 ml-5 " onClick={toImportant}>
-            <img src={email} alt="handle with care" className="w-[15%]" />
-            <p className="text-white font-semibold text-[1.3rem] self-center ml-3">
+          <button className="flex sm:gap-1 md:gap-3 lg:gap-5 mt-5 ml-5 " onClick={toImportant}>
+            <img src={email}
+             alt="handle with care"
+             className="'sm:w-[20%] md:w-[13%] lg:w-[15%]" />
+            <p className="text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center ml-3">
               Important
             </p>
           </button>
-          <button className="flex gap-5 mt-5 ml-5 " onClick={toCompleted}>
-            <img src={approved} alt="handle with care" className="w-[15%]" />
-            <p className="text-white font-semibold text-[1.3rem] self-center ml-3">
+          <button className="flex sm:gap-1 md:gap-3 lg:gap-5 mt-5 ml-5 " onClick={toCompleted}>
+            <img src={approved} 
+            alt="handle with care"
+             className="sm:w-[20%] md:w-[13%] lg:w-[15%]" />
+            <p className="text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center ml-3">
               Completed
             </p>
           </button>
