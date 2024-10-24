@@ -89,9 +89,9 @@ const PersonEdit = () => {
     if(loading) return <Skeleton />
 
     return ( 
-        <div  style={{backgroundImage:`url(${background})`}} className="bg-cover bg-center h-screen">
+        <div  style={{backgroundImage:`url(${background})`}} className="bg-cover bg-center h-screen overflow-hidden overflow-y-auto">
         <div className='flex'>
-        <div className='w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack '>
+        <div className='relative w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack '>
         <div className='flex sm:gap-1 md:gap-3 lg:gap-5  mt-5 mb-10 ml-5'>
             <img src={logo}
              alt="handle with care
@@ -113,7 +113,7 @@ const PersonEdit = () => {
         <button className='flex  sm:gap-1 md:gap-3 lg:gap-5  mt-5 bg-button w-full py-2' >
             <img src={person}
              alt="handle with care"
-              className='sm:w-[18%] md:w-[17%] lg:w-[20%] ml-4'/>
+              className='sm:w-[18%] md:w-[17%] lg:w-[15%] ml-4'/>
              <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center '>Personal</p>
         </button>
         <button className='flex  sm:gap-1 md:gap-3 lg:gap-5  mt-5 ml-5 ' onClick={toImportant}>

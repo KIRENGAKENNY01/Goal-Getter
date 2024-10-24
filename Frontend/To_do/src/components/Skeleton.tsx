@@ -3,7 +3,7 @@ const PageSkeleton = () => {
     return (
         <div  style={{backgroundImage:`url(${background})`}} className="bg-cover bg-center">
         <div className='flex'>
-        <div className='w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack'>
+        <div className='relative w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack'>
         <div className='flex gap-5 mt-5 mb-10 ml-5'>
             <div className='w-[20%] p-4 rounded-lg animate-pulse bg-[#ffffff80]'></div>
              <div className='h-3 w-1/5   self-center   bg-[#ffffff80] rounded-full'></div>

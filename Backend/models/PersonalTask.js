@@ -1,8 +1,25 @@
-const mongoose=require('mongoose')
+const mongoose= require('mongoose')
+const {incrementId}=require('./counting')
 
-const taskSchema=new mongoose.Schema({
+
+const personalTaskSchema= new  mongoose.Schema({
     Description:{type:String,required:true},
-    Completed:{type:Boolean,default:false}
+    Completed:{type:Boolean,default:false},
+    Id:{type:Number,unique:true}
 })
 
-module.exports=new mongoose.model("personalTask",taskSchema)
+personalTaskSchema.pre('save',async function(next){
+if(!this.Id){
+   try{
+   this.Id=await incrementId('personalTaskSchema');
+   }
+   catch(err){
+   return next(err);
+   }
+}
+
+next();
+})
+
+
+module.exports= mongoose.model("personalTask",personalTaskSchema)

@@ -1,46 +1,89 @@
 const Task=require('../models/ImportantTask')
+
+
 //get all tasks
 const getImportant=async(req,res)=>{
 try{
     const task= await Task.find()
-    res.status(200).json({message:' Fetching work task',data:task})
+    res.status(200).json({message:' Fetching important task',data:task})
 }catch(err){
     res.status(400).json({message:'Err while fetching Important Task',err})
 }
 }
 
+
+//get individual importatn task
+const getImportantId=async(req,res)=>{
+    try{
+    const {Id}=req.params;
+    const singleTask=await Task.findOne({Id:Id});
+    if(!singleTask){
+        return res.status(404).json({message:"This important task is not found"})
+    }
+    res.status(200).json({message:"Fetched single important task", data:singleTask})
+}
+catch(err){
+    res.status(400).json({message:"An error occured while fetching single important task",data:err})
+}
+    
+}
+
+
+//create important task 
 const createImportant=async(req,res)=>{
     try{
     const newTask=new Task(req.body)
     await newTask.save()
-    res.status(201).json({message:'Creating work task',data:newTask})
+    res.status(201).json({message:'Creating important task',data:newTask})
     }
     catch(err){
-        res.status(400).json({message:'Err while creating Important Task',err})
+        res.status(400).json({message:'Err while creating Important Task',data:err})
+        console.log(err);
     }
 }
 
+
+//update important task 
 const updateImportant=async(req,res)=>{
-    try{
-    const task=await Task.findByIdAndUpdate(req.params.id,req.body,{new:true})
-    res.status(200).json({message:' Updating Important task',data:task})
-    
-    }
-    catch(err){
-    res.status(200).json({message:'Err while updating Important Task',err})
-    }
+ try{
+  const {Id}=req.params;
+  const {Description}=req.body;
+
+  const updateTask=await Task.findOneAndUpdate(
+    {Id:Id},
+    {Description:Description},
+    {new:true}
+)
+   if(!updateTask){
+    return res.status(404).json({message:"Important task not found"})
+   }
+   res.status(200).json({message:"Updated important task ",data:updateTask})
+ }
+ catch(err){
+  res.status(200).json({message:"An error occured while updating important task", data:err})
+ }
 }
+
+
+//delete task
 const deleteImportant=async(req,res)=>{
-    try{
-        const task=await Task.findByIdAndDelete(req.params.id)
-        res.status(200).json({message:' Deleting Importatn task',data:task})
-    }
-    catch(err){
-        res.status(400).json({message:'Err while deleting Important Task',err})
-    }
+try{
+const {Id}=req.params;
+const deleteTask=await Task.findOneAndDelete({Id:Id})
+
+if(!deleteTask){
+    return res.status(404).json({message:"Important task to be deleted is not found"})
+}
+
+res.status(200).json({message:"Important task has been deleted",data:deleteTask})
+
+}
+catch(err){
+ res.status(400).json({message:"An error occured while deleting an important task"})
+}
 }
 
 
 
 
-module.exports={getImportant,createImportant,deleteImportant,updateImportant}
+module.exports={getImportant,getImportantId,createImportant,deleteImportant,updateImportant}

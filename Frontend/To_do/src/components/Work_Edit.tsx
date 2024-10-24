@@ -13,7 +13,8 @@ import LogPopup from "./LogPopup";
 import axios from "axios";
 import PageSkeleton from "./Skeleton";
 import ErrorPage from "./Error"
-import DeletePop from "./DeletePopup";
+// import DeletePop from "./DeletePopup";
+import ChangePopup from "./ChangePopup";
 
 
 interface Description {
@@ -22,8 +23,9 @@ interface Description {
 
 interface Tasks {
   Completed: string;
-  Description: string
+  Description: string;
   _id: number;
+  Id:number;
 }
 
 const WorkEdit: React.FC = () => {
@@ -107,7 +109,7 @@ const WorkEdit: React.FC = () => {
       className="bg-cover bg-center h-screen overflow-hidden overflow-y-auto"
     >
       <div className="flex ">
-        <div className="w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack overflow-y-auto">
+        <div className="relative w-[20%]  bg-gradient-to-b from-liblack via-liyellow to-liblack overflow-y-auto">
           <div className="flex sm:gap-1 md:gap-3 lg:gap-5 mt-5 mb-10 ml-5">
             <img src={logo} alt="handle with care" className="sm:w-[20%] md:w-[13%] lg:w-[15%]" />
             <p className="text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center">
@@ -133,7 +135,7 @@ const WorkEdit: React.FC = () => {
           <button className="flex sm:gap-1 md:gap-3 lg:gap-5  mt-5 ml-5 " onClick={toPerson}>
             <img src={person} 
             alt="handle with care"
-             className="sm:w-[18%] md:w-[17%] lg:w-[20%]" />
+             className="sm:w-[18%] md:w-[17%] lg:w-[15%]" />
             <p className="text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center ml-2">
               Personal
             </p>
@@ -172,15 +174,15 @@ const WorkEdit: React.FC = () => {
               className="w-[80%] mx-auto bg-light_button my-5  p-2 flex  justify-between items-center"
               key={info._id}
             >
-              <div className="flex gap-2">
-                <DeletePop/>
+              <div className="flex items-center gap-2">
+               <ChangePopup Id={info.Id}/>
                 <div className="text-white">{info.Description}</div>
               </div>
               <button className="bg-hover px-5 py-2 text-white" type="submit" >
               Completed{info.Completed}
             </button>
             </div>
-          ))}
+          ))} 
           <form
             onSubmit={handleSubmit}
             className="w-[80%] mx-auto flex justify-center  bg-light_button  my-10"
@@ -191,7 +193,7 @@ const WorkEdit: React.FC = () => {
               onChange={handleChange}
               name="Description"
               value={taskData.Description}
-              className="w-[80%] text-white flex-grow bg-light_button p-2 outline-none"
+              className="w-[80%] text-white flex-grow bg-light_button p-3 outline-none"
             />
             <button className="bg-hover px-5 text-white" type="submit">
               Save

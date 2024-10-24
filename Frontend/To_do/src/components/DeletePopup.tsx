@@ -1,28 +1,18 @@
-import Popup from 'reactjs-popup';
-import deleteIcon from '../assets/icons/delete.png'
 
 
-const PopupContent:React.FC<{close:()=>void}> = ({close})=>{
-    return (
-        <div className='bg-black w-full py-5 px-20 mx-auto'>
-            <p className='text-white font-semibold mt-5 mb-7 ml-5'>Do you want to delete this note?</p>
-            <div className='flex justify-evenly gap-4 my-5'>
-                <button className='bg-button px-8 py-3 text-white font-semibold mr-10' onClick={close}>Cancel</button>
-                <button className='bg-reddy px-8 py-3 text-white font-semibold'>Delete</button>
-            </div>
-        </div>
-    )
+const DeletePopup= () => {
+
+  return ( 
+    <div className="bg-[#0a0a0a] w-[100%] h-screen flex flex-col gap-6 justify-center items-center" >
+      <div className="w-[40%] h-[30%] rounded-xl bg-light_button flex flex-col items-center justify-center gap-10 ">
+         <h2 className="text-white font-bold text-[23px]"> Do you want to delete this task ?</h2>
+         <div className="flex gap-5">
+           <button className="text-white bg-[#0a0a0a] py-3 px-10 rounded-xl border-2 border-white">Cancel</button>
+           <button className="text-white bg-[#ff0000f4] py-3 px-10 rounded-xl border-2 border-white">Delete</button>
+         </div>
+      </div>
+    </div>
+   );
 }
-const DeletePop= () => {
-  return (
-    <Popup
-      trigger={<button><img src={deleteIcon} alt=" a trash bin" className='w-[50%]'/></button>}
-      modal
-      overlayStyle={{ backgroundColor: '#0a0a0a80' }}
-    >
-     {(close)=><PopupContent close={close}/>} 
-    </Popup>
-  );
-};
-
-export default DeletePop;
+ 
+export default DeletePopup;

@@ -11,6 +11,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 import PageSkeleton from './Skeleton'
 import DeletePop from './DeletePopup'
+import {useNavigate} from 'react-router-dom'
 
 interface Description{
 Description:string
@@ -21,7 +22,12 @@ id:number
 }
 
 const ImportantEdit = () => {
-
+    const navigate=useNavigate();
+    const toUser:React.MouseEventHandler<HTMLButtonElement> = () => navigate('/profile');
+    const toPerson:React.MouseEventHandler<HTMLButtonElement> = () => navigate('/person');
+    const toWork:React.MouseEventHandler<HTMLButtonElement> = () => navigate('/work');
+    const toImportant:React.MouseEventHandler<HTMLButtonElement> = () => navigate('/important')
+    const toComplete:React.MouseEventHandler<HTMLButtonElement> = () => navigate('/completed')
 
     const[taskData,setTaskData]=useState<Description>({
         Description:""
@@ -93,43 +99,43 @@ const ImportantEdit = () => {
     return (  
         <div  style={{backgroundImage:`url(${background})`}} className="bg-cover bg-center">
         <div className='flex'>
-        <div className='w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack'>
+        <div className='relative w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack'>
         <div className='flex  sm:gap-1 md:gap-3 lg:gap-5   mt-5 mb-10 ml-5'>
             <img src={logo}
              alt="handle with care"
               className='sm:w-[20%] md:w-[13%] lg:w-[15%]' />
              <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center'>Goal Getter</p>
         </div>
-        <div className='flex sm:gap-1 md:gap-3 lg:gap-5  mt-5 ml-5'>
+        <button onClick={toUser} className='flex sm:gap-1 md:gap-3 lg:gap-5  mt-5 ml-5'>
             <img src={user} 
             alt="handle with care"
              className='sm:w-[20%] sm:h-[20%] md:w-[20%] h-[20%] lg:w-[15%]' />
              <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center'>John Kabera</p>
-        </div>
-        <div className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-20 '>
+        </button>
+        <button onClick={toWork} className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-20 '>
             <img src={office}
              alt="handle with care"
               className='sm:w-[18%] md:w-[13%] lg:w-[15%] ml-5' />
              <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center'>Work</p>
-        </div>
-        <div className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-5 '>
+        </button>
+        <button onClick={toPerson}  className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-5 '>
             <img src={person}
              alt="handle with care" 
-             className=' sm:w-[18%] md:w-[17%] lg:w-[20%] ml-5'/>
+             className=' sm:w-[18%] md:w-[17%] lg:w-[15%] ml-5'/>
              <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center '>Personal</p>
-        </div>
-        <div className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-5 w-full py-2 bg-button  '>
+        </button>
+        <button onClick={toImportant} className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-5 w-full py-2 bg-button  '>
             <img src={email}
              alt="handle with care"
               className='sm:w-[20%] md:w-[13%] lg:w-[15%] ml-5' />
              <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center'>Important</p>
-        </div>
-        <div className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-5 ml-5 bg-'>
+        </button>
+        <button onClick={toComplete} className='flex sm:gap-1 md:gap-3 lg:gap-5   mt-5 ml-5 bg-'>
             <img src={approved} 
             alt="handle with care"
              className='sm:w-[20%] md:w-[13%] lg:w-[15%]'/>
              <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem]  self-center'>Completed</p>
-        </div>
+        </button>
  
        <LogPopup/>
 
@@ -157,7 +163,7 @@ const ImportantEdit = () => {
                      onChange={handleChange}
                      name='Description'
                      value={taskData.Description}
-                     className='w-[80%] text-white flex-grow bg-light_button p-2 outline-none' />
+                     className='w-[80%] text-white flex-grow bg-light_button p-3 outline-none' />
                     <button className='bg-hover px-5 py-2 text-white' type='submit'>Save</button>
                     </form>  
             

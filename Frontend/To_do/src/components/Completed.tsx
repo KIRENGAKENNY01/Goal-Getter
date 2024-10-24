@@ -16,9 +16,9 @@ const Completed = () => {
     const toPerson:React.MouseEventHandler<HTMLButtonElement> = ()=>navigate('/person')
     const toImportant:React.MouseEventHandler<HTMLButtonElement> = ()=>navigate('/important')
     return (
-<div  style={{backgroundImage:`url(${background})`}} className="bg-cover bg-center">
+<div  style={{backgroundImage:`url(${background})`}} className="bg-cover bg-center h-screen overflow-hidden overflow-y-auto">
         <div className='flex'>
-        <div className='w-[20%] h-screen bg-gradient-to-b from-liblack via-liyellow to-liblack'>
+        <div className=' w-[20%] bg-gradient-to-b from-liblack via-liyellow to-liblack'>
         <div className='flex  sm:gap-1 md:gap-3 lg:gap-5 mt-5 mb-10 ml-5'>
             <img src={logo}
              alt="handle with care"
@@ -52,7 +52,7 @@ const Completed = () => {
         <button className='flex  sm:gap-1 md:gap-3 lg:gap-5 mt-5  bg-button w-full py-2' >
             <img src={approved} 
             alt="handle with care"
-             className='sm:w-[18%] md:w-[17%] lg:w-[20%]  ml-4' />
+             className='sm:w-[18%] md:w-[17%] lg:w-[15%]  ml-4' />
              <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center '>Completed</p>
         </button>
  

@@ -1,7 +1,26 @@
 const mongoose=require('mongoose')
 
-const taskSchema=new mongoose.Schema({
+const {incrementId}=require('./counting')
+
+const workTaskSchema= new  mongoose.Schema({
     Description:{type:String,required:true},
-    Completed:{type:Boolean,default:false}
+    Completed:{type:Boolean,default:false},
+    Id:{type:Number,unique:true}
 })
-module.exports=new mongoose.model("Worktask",taskSchema)
+
+
+workTaskSchema.pre('save',async function(next){
+    if(!this.Id){
+        try{
+        this.Id = await incrementId('workTaskSchema');
+        }
+        catch(err){
+            return next(err)
+        }
+    }
+
+    next();
+  
+});
+module.exports=  mongoose.model("Worktasks",workTaskSchema)
+

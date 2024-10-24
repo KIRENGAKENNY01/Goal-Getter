@@ -1,4 +1,4 @@
-This is a to do app where you can plan your things based on categories such as 
+This is a schedule planner  where you can plan your things based on categories such as 
 Work 
 Personal 
 Important 
