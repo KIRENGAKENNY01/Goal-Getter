@@ -1,16 +1,16 @@
-import background from '../assets/images/background.png'
-import logo from '../assets/icons/logo.png'
-import user from '../assets/icons/user.png'
-import office from '../assets/icons/office.png'
-import person from '../assets/icons/person.png'
-import email from '../assets/icons/email.png'
-import approved from '../assets/icons/approved.png'
-import laptopWork from '../assets/images/laptopWork.png'
-import plus from '../assets/icons/plus.png'
+import background from '../../assets/images/background.png'
+import logo from '../../assets/icons/logo.png'
+import user from '../../assets/icons/user.png'
+import office from '../../assets/icons/office.png'
+import person from '../../assets/icons/person.png'
+import email from '../../assets/icons/email.png'
+import approved from '../../assets/icons/approved.png'
+import laptopWork from '../../assets/images/laptopWork.png'
+import plus from '../../assets/icons/plus.png'
 
 import { useNavigate } from 'react-router-dom'
 import {useState} from 'react'
-import LogPopup from './LogPopup'
+import LogPopup from '../LogPopup'
 import axios from 'axios'
 import { FaChevronCircleDown } from 'react-icons/fa'
 interface Description{
@@ -102,7 +102,7 @@ const Work:React.FC = () => {
         </div>
         <div className=' w-[80%] justify-between flex flex-col items-center mt-10'>
         <div className='flex flex-col w-[100%]'>
-            <button className='text-white bg-hover self-start ml-5  p-2 flex items-center gap-2 w-  ' onClick={toworkEdit}>
+            <button className='text-white bg-button self-start ml-5  p-2 flex items-center gap-2 ' onClick={toworkEdit}>
                 <FaChevronCircleDown className='text-white sm:text-[60%] md:text-[80%] lg:text-[100%] '/>
                 <p className='text-white  sm:text-[60%] md:text-[80%] lg:text-[100%]'>Check Task</p>
                 </button>

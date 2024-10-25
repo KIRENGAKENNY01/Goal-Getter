@@ -3,8 +3,11 @@ import {useParams,useNavigate} from 'react-router-dom'
 import axios from 'axios'
 
 
-const Update = () => {
+
+const UpdateImportant = () => {
     const navigate=useNavigate(); 
+    const toImportantEdit:React.MouseEventHandler<HTMLButtonElement> = () => navigate('/importantedit')
+
     const {Id} = useParams();
     console.log(Id);
   const[values,setValues]=useState({
@@ -12,7 +15,7 @@ const Update = () => {
     Description:''
   })
     useEffect(()=>{
-   axios.get('http://localhost:5000/api/task/work/'+Id)
+   axios.get('http://localhost:5000/api/task/important/'+Id)
    .then((res)=>{
     setValues({...values,Description:res.data.data.Description})
     console.log(res.data.data.Description)
@@ -35,9 +38,9 @@ const Update = () => {
     const handleSubmit=(e:React.FormEvent<HTMLButtonElement>)=>{
     e.preventDefault();
     
-    axios.put('http://localhost:5000/api/task/work/'+Id,values)
+    axios.put('http://localhost:5000/api/task/important/'+Id,values)
     .then(()=>{
-        navigate('/workedit')
+        navigate('/importantedit')
     })
     .catch((err)=>{
        if(err.response){
@@ -55,13 +58,16 @@ const Update = () => {
 
     return ( 
         <div className="bg-[#0a0a0a] w-[100%] h-screen flex flex-col gap-6 justify-center items-center" >
-              <h2 className="text-white font-bold text-[30px]">Update Work Task</h2>
-         <form onSubmit={handleSubmit} className="w-[50%] h-[40%]  rounded-l bg-light_button  flex flex-col gap-5 justify-center items-center ">
-            <input type="text" value={values.Description} onChange={e => setValues({...values,Description:e.target.value})} className="rounded-xl w-[70%] mx-auto p-2"/>
-            <button className='text-white bg-[#0a0a0a] py-3 px-10 rounded-xl border-2 border-white' type='submit'>Update</button>
-            </form>      
-        </div>
+        <h2 className="text-white font-bold text-[30px]">Update Work Task</h2>
+   <form onSubmit={handleSubmit} className="w-[50%] h-[40%]  rounded-l bg-light_button  flex flex-col gap-5 justify-center items-center ">
+      <input type="text" value={values.Description} onChange={e => setValues({...values,Description:e.target.value})} className="rounded-xl w-[70%] mx-auto p-2"/>
+      <div className='flex gap-10 w-[100%] justify-center'>
+         <button className='text-white bg-[#0a0a0a] py-3 px-10 rounded-xl border-2 border-white' onClick={toImportantEdit}>Cancel</button>
+         <button className='text-white bg-[#0a0a0a] py-3 px-10 rounded-xl border-2 border-white' >Update</button>
+      </div>
+      </form>      
+  </div>
      );
 }
  
-export default Update;
+export default UpdateImportant;

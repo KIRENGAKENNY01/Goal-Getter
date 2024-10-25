@@ -20,7 +20,7 @@ const PopupContent:React.FC<{close:()=> void}> = ({close})=>{
 
 const LogPopup:React.FC = ()=>{
     return (
-<Popup trigger={<button className='absolute bottom-[20px] flex items-center sm:gap-1 md:gap-3 lg:gap-5 mt-5 ml-5 mt-10 '>
+<Popup trigger={<button className='flex items-center sm:gap-1 md:gap-3 lg:gap-5 mt-20 ml-5 mt-10 '>
             <img src={logout} alt="handle with care" className='sm:w-[20%] sm:h-[20%] md:w-[20%] h-[20%] lg:w-[20%]'/>
              <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center'>Log out</p>
         </button>} modal overlayStyle={{backgroundColor :`#0a0a0a80`}}>

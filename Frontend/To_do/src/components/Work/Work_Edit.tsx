@@ -1,20 +1,20 @@
-import background from "../assets/images/background.png";
-import logo from "../assets/icons/logo.png";
-import user from "../assets/icons/user.png";
-import office from "../assets/icons/office.png";
-import person from "../assets/icons/person.png";
-import approved from "../assets/icons/approved.png";
-// import Delete from '../assets/icons/delete.png'
-import email from "../assets/icons/email.png";
-// import DeletePop from './DeletePopup'
+import background from "../../assets/images/background.png";
+import logo from "../../assets/icons/logo.png";
+import user from "../../assets/icons/user.png";
+import office from "../../assets/icons/office.png";
+import person from "../../assets/icons/person.png";
+import approved from "../../assets/icons/approved.png";
+
+import email from "../../assets/icons/email.png";
+
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import LogPopup from "./LogPopup";
+import LogPopup from "../LogPopup";
 import axios from "axios";
-import PageSkeleton from "./Skeleton";
-import ErrorPage from "./Error"
-// import DeletePop from "./DeletePopup";
-import ChangePopup from "./ChangePopup";
+import PageSkeleton from "../Skeleton";
+import ErrorPage from "../ErrorPage"
+
+import ChangePopup from "./ChangeWork";
 
 
 interface Description {
@@ -106,7 +106,7 @@ const WorkEdit: React.FC = () => {
   return (
     <div
       style={{ backgroundImage: `url(${background})` }}
-      className="bg-cover bg-center h-screen overflow-hidden overflow-y-auto"
+      className=" bg-cover bg-center h-screen overflow-hidden overflow-y-auto"
     >
       <div className="flex ">
         <div className="relative w-[20%]  bg-gradient-to-b from-liblack via-liyellow to-liblack overflow-y-auto">
@@ -179,7 +179,7 @@ const WorkEdit: React.FC = () => {
                 <div className="text-white">{info.Description}</div>
               </div>
               <button className="bg-hover px-5 py-2 text-white" type="submit" >
-              Completed{info.Completed}
+              Completed
             </button>
             </div>
           ))} 

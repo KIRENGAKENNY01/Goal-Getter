@@ -1,22 +1,26 @@
-import background from '../assets/images/background.png'
-import logo from '../assets/icons/logo.png'
-import user from '../assets/icons/user.png'
-import office from '../assets/icons/office.png'
-import person from '../assets/icons/person.png'
-import approved from '../assets/icons/approved.png'
-import email from '../assets/icons/email.png'
-import DeletePop from './DeletePopup'
+import background from '../../assets/images/background.png'
+import logo from '../../assets/icons/logo.png'
+import user from '../../assets/icons/user.png'
+import office from '../../assets/icons/office.png'
+import person from '../../assets/icons/person.png'
+import approved from '../../assets/icons/approved.png'
+import email from '../../assets/icons/email.png'
 import {  useNavigate } from 'react-router-dom'
-import LogPopup from './LogPopup'
+import LogPopup from '../LogPopup'
 import axios from 'axios'
 import {useState,useEffect} from 'react'
 import Skeleton from 'react-loading-skeleton'
+import ChangePerson from './ChangePerson'
+import ErrorPage from '../ErrorPage'
+
+
 interface Description{
     Description:string,
 }
 interface Task{
     Description:string,
-    id:number
+    _id:number,
+    Id:number
 }
 
 const PersonEdit = () => {
@@ -25,12 +29,15 @@ const PersonEdit = () => {
     const towork:React.MouseEventHandler<HTMLButtonElement> =()=>navigate('/work')
     const toImportant:React.MouseEventHandler<HTMLButtonElement> = ()=>navigate('/important')
     const toCompleted:React.MouseEventHandler<HTMLButtonElement> = ()=>navigate('/completed')
+    const toPerson:React.MouseEventHandler<HTMLButtonElement> = ()=> navigate('/person')
+
 
     const[taskData,setTaskData]=useState<Description>({
         Description:""
     })
     const[data,setData]=useState<Task[]>([])
     const[loading,setLoading]=useState<boolean>(false);
+    const[error,setError]=useState();
 
     const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
      const {name,value}=e.target;
@@ -76,8 +83,9 @@ const PersonEdit = () => {
     console.log(realData)
     setData(realData.data)
     }
-    catch(err){
+    catch(err:any){
         console.log("Err while fetching",err)
+        setError(err);
     }
     finally{
     setLoading(false)
@@ -87,6 +95,7 @@ const PersonEdit = () => {
     },[])
 
     if(loading) return <Skeleton />
+    if(error) return <ErrorPage/>
 
     return ( 
         <div  style={{backgroundImage:`url(${background})`}} className="bg-cover bg-center h-screen overflow-hidden overflow-y-auto">
@@ -110,7 +119,7 @@ const PersonEdit = () => {
              className=' sm:w-[18%] md:w-[13%] lg:w-[15%] ml-5'/>
              <p className='text-white font-semibold sm:text-[0.9rem] md:text-[1.1rem] lg:text-[1.3rem] self-center' >Work</p>
         </button>
-        <button className='flex  sm:gap-1 md:gap-3 lg:gap-5  mt-5 bg-button w-full py-2' >
+        <button className='flex  sm:gap-1 md:gap-3 lg:gap-5  mt-5 bg-button w-full py-2' onClick={toPerson}>
             <img src={person}
              alt="handle with care"
               className='sm:w-[18%] md:w-[17%] lg:w-[15%] ml-4'/>
@@ -141,12 +150,12 @@ const PersonEdit = () => {
               
         </div>
          {data.map((info)=>(
-            <div className='w-[80%] mx-auto my-5 p-2 flex justify-between items-center bg-light_button justify-between items-center' key={info.id}>
-              <div className='flex gap-2'>
-                  <DeletePop />
-                  <p className='text-white'>{info.Description}</p>
+            <div className='w-[80%] mx-auto my-5 p-2 flex justify-between items-center bg-light_button j' key={info._id}>
+              <div className='flex items-center gap-2'>
+                  <ChangePerson Id={info.Id} />
+                  <div className='text-white'>{info.Description}</div>
               </div>
-              <button className='bg-hover px-5 py-2 text-white'>Complete</button>
+              <button className='bg-hover px-5 py-2 text-white'>Completed</button>
                 </div>
          ))}
         

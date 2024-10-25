@@ -1,17 +1,17 @@
 
-import background from '../assets/images/background.png'
-import logo from '../assets/icons/logo.png'
-import user from '../assets/icons/user.png'
-import office from '../assets/icons/office.png'
-import person from '../assets/icons/person.png'
-import approved from '../assets/icons/approved.png'
-import email from '../assets/icons/email.png'
-import LogPopup from './LogPopup'
+import background from '../../assets/images/background.png'
+import logo from '../../assets/icons/logo.png'
+import user from '../../assets/icons/user.png'
+import office from '../../assets/icons/office.png'
+import person from '../../assets/icons/person.png'
+import approved from '../../assets/icons/approved.png'
+import email from '../../assets/icons/email.png'
+import LogPopup from '../LogPopup'
 import {useState,useEffect} from 'react'
 import axios from 'axios'
-import PageSkeleton from './Skeleton'
-import DeletePop from './DeletePopup'
+import PageSkeleton from '../Skeleton'
 import {useNavigate} from 'react-router-dom'
+import ChangeImportant from './ChangeImportant'
 
 interface Description{
 Description:string
@@ -19,6 +19,7 @@ Description:string
 interface Task{
 Description:string,
 id:number
+Id:number
 }
 
 const ImportantEdit = () => {
@@ -149,12 +150,12 @@ const ImportantEdit = () => {
               
         </div>
                {data.map((info)=>(
-                <div className='w-[80%] mx-auto flex justify-between items-center bg-light_button my-5' key={info.id}>
-                 <div className='flex gap-2'>
-                     <DeletePop/>
+                <div className='w-[80%] mx-auto flex justify-between items-center bg-light_button my-5 justify-between  p-2' key={info.id}>
+                 <div className='flex items-center gap-2'>
+                     <ChangeImportant Id={info.Id}/>
                      <div className='text-white'>{info.Description}</div>
                  </div>
-                 <button className='bg-hover text-white px-5 py-2 '>Complete</button>
+                 <button className='bg-hover text-white px-5 py-2 '>Completed</button>
                 </div>
                ))}
                     <form onSubmit={handleSubmit} className='w-[80%] mx-auto flex justify-center  bg-light_button my-5'> 
